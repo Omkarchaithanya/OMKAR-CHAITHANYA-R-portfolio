@@ -1,6 +1,6 @@
-# My Portfolio Wesbite - Overview 🚀
+# Omkar Chaithanya R - Portfolio Website 🚀
 
-This repository contains the open source version of my porfolio website.
+This repository contains the open source version of my portfolio website.
 Do check it out!
 
 ## Instructions 🛠️
