@@ -1,0 +1,325 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Dark server room bg -->
+    <linearGradient id="roomBG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#060810"/>
+      <stop offset="100%" stop-color="#020408"/>
+    </linearGradient>
+    <!-- Server rack metal -->
+    <linearGradient id="rackMetal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1e2a"/>
+      <stop offset="40%" stop-color="#22263a"/>
+      <stop offset="100%" stop-color="#181c28"/>
+    </linearGradient>
+    <!-- GPU card gradient -->
+    <linearGradient id="gpuCard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e2235"/>
+      <stop offset="50%" stop-color="#161c2e"/>
+      <stop offset="100%" stop-color="#0e1220"/>
+    </linearGradient>
+    <!-- AMD red gradient -->
+    <linearGradient id="amdRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#cc0000"/>
+      <stop offset="100%" stop-color="#ff2222"/>
+    </linearGradient>
+    <!-- HBM3 blue glow -->
+    <radialGradient id="hbmGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#4488ff60"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <!-- Terminal panel -->
+    <linearGradient id="termBG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#040810"/>
+      <stop offset="100%" stop-color="#020508"/>
+    </linearGradient>
+    <!-- Bar gradient variants -->
+    <linearGradient id="barTeal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#00c4a0"/>
+    </linearGradient>
+    <linearGradient id="barPurple" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="barRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fc8181"/>
+      <stop offset="100%" stop-color="#e53e3e"/>
+    </linearGradient>
+    <filter id="glowF">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ledGlow">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ambGlow">
+      <feGaussianBlur stdDeviation="8" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- PCB trace pattern -->
+    <pattern id="pcbTrace" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="10" x2="20" y2="10" stroke="#5eead408" stroke-width="1"/>
+      <line x1="10" y1="0" x2="10" y2="20" stroke="#5eead408" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#roomBG)"/>
+
+  <!-- Ambient rack environment glow -->
+  <ellipse cx="185" cy="225" rx="180" ry="220" fill="#4466ff" opacity="0.04" filter="url(#ambGlow)"/>
+  <ellipse cx="185" cy="225" rx="120" ry="180" fill="#2244aa" opacity="0.06"/>
+
+  <!-- ===== SERVER RACK ===== -->
+  <!-- Rack outer shell -->
+  <rect x="20" y="18" width="330" height="414" rx="6" fill="url(#rackMetal)" stroke="#2a2e40" stroke-width="2"/>
+  <!-- Rack top bezel -->
+  <rect x="20" y="18" width="330" height="22" rx="6" fill="#1e2238"/>
+  <rect x="20" y="22" width="330" height="14" rx="0" fill="#252840"/>
+  <!-- Rack label -->
+  <text x="185" y="33" font-family="'Courier New',monospace" font-size="9" fill="#5eead4" text-anchor="middle">AMD MI300X × 8  |  SYSTEM-NODE-01</text>
+
+  <!-- Rack rail lines -->
+  <line x1="28" y1="40" x2="28" y2="430" stroke="#1a1e30" stroke-width="3"/>
+  <line x1="342" y1="40" x2="342" y2="430" stroke="#1a1e30" stroke-width="3"/>
+
+  <!-- GPU Blades — 8 units -->
+  <!-- GPU 1 -->
+  <rect x="35" y="44" width="300" height="44" rx="3" fill="url(#gpuCard)" stroke="#2a2e45" stroke-width="1"/>
+  <rect x="35" y="44" width="300" height="44" fill="url(#pcbTrace)"/>
+  <!-- AMD stripe -->
+  <rect x="35" y="46" width="8" height="40" rx="2" fill="url(#amdRed)"/>
+  <!-- AMD chip die (center) -->
+  <rect x="80" y="50" width="55" height="35" rx="3" fill="#121828" stroke="#3a4060" stroke-width="1"/>
+  <rect x="88" y="56" width="38" height="23" rx="2" fill="#0e1420"/>
+  <!-- Die markings -->
+  <text x="107" y="70" font-family="monospace" font-size="6" fill="#4488ff" text-anchor="middle">MI300X</text>
+  <text x="107" y="79" font-family="monospace" font-size="5" fill="#3366cc">208B</text>
+  <!-- HBM3 stacks (4 per card, blue) -->
+  <rect x="148" y="52" width="22" height="16" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/>
+  <rect x="148" y="52" width="22" height="16" fill="url(#hbmGlow)"/>
+  <text x="159" y="63" font-family="monospace" font-size="5.5" fill="#4488ff" text-anchor="middle">HBM3</text>
+  <rect x="176" y="52" width="22" height="16" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/>
+  <rect x="176" y="52" width="22" height="16" fill="url(#hbmGlow)"/>
+  <text x="187" y="63" font-family="monospace" font-size="5.5" fill="#4488ff" text-anchor="middle">HBM3</text>
+  <rect x="148" y="72" width="22" height="14" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/>
+  <rect x="176" y="72" width="22" height="14" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/>
+  <!-- GPU slot # and LED status -->
+  <text x="45" y="60" font-family="monospace" font-size="8" fill="#8090b0">GPU-0</text>
+  <circle cx="46" cy="74" r="3.5" fill="#00ff88" filter="url(#ledGlow)"/>
+  <!-- Memory info -->
+  <text x="210" y="60" font-family="monospace" font-size="7" fill="#6080a0">192GB VRAM</text>
+  <text x="210" y="74" font-family="monospace" font-size="7" fill="#5070908">5.3 TB/s</text>
+  <!-- Load bar -->
+  <rect x="264" y="52" width="60" height="8" rx="4" fill="#0a1020"/>
+  <rect x="264" y="52" width="52" height="8" rx="4" fill="#5eead4"/>
+  <text x="264" y="76" font-family="monospace" font-size="6.5" fill="#5eead4">87% UTIL</text>
+
+  <!-- GPU 2-8 (abbreviated for realism) -->
+  <!-- GPU 2 -->
+  <rect x="35" y="92" width="300" height="44" rx="3" fill="url(#gpuCard)" stroke="#2a2e45" stroke-width="1"/>
+  <rect x="35" y="92" width="300" height="44" fill="url(#pcbTrace)"/>
+  <rect x="35" y="94" width="8" height="40" rx="2" fill="url(#amdRed)"/>
+  <rect x="80" y="98" width="55" height="35" rx="3" fill="#121828" stroke="#3a4060" stroke-width="1"/>
+  <rect x="88" y="104" width="38" height="23" rx="2" fill="#0e1420"/>
+  <text x="107" y="118" font-family="monospace" font-size="6" fill="#4488ff" text-anchor="middle">MI300X</text>
+  <rect x="148" y="100" width="22" height="16" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/><rect x="176" y="100" width="22" height="16" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/>
+  <rect x="148" y="120" width="22" height="14" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/><rect x="176" y="120" width="22" height="14" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/>
+  <text x="45" y="108" font-family="monospace" font-size="8" fill="#8090b0">GPU-1</text>
+  <circle cx="46" cy="122" r="3.5" fill="#00ff88" filter="url(#ledGlow)"/>
+  <text x="210" y="108" font-family="monospace" font-size="7" fill="#6080a0">192GB VRAM</text>
+  <rect x="264" y="100" width="60" height="8" rx="4" fill="#0a1020"/>
+  <rect x="264" y="100" width="48" height="8" rx="4" fill="#5eead4"/>
+  <text x="264" y="124" font-family="monospace" font-size="6.5" fill="#5eead4">80% UTIL</text>
+
+  <!-- GPU 3 -->
+  <rect x="35" y="140" width="300" height="44" rx="3" fill="url(#gpuCard)" stroke="#2a2e45" stroke-width="1"/>
+  <rect x="35" y="140" width="300" height="44" fill="url(#pcbTrace)"/>
+  <rect x="35" y="142" width="8" height="40" rx="2" fill="url(#amdRed)"/>
+  <rect x="80" y="146" width="55" height="35" rx="3" fill="#121828" stroke="#3a4060" stroke-width="1"/>
+  <text x="107" y="168" font-family="monospace" font-size="6" fill="#4488ff" text-anchor="middle">MI300X</text>
+  <rect x="148" y="148" width="22" height="16" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/><rect x="176" y="148" width="22" height="16" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/>
+  <rect x="148" y="168" width="22" height="14" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/><rect x="176" y="168" width="22" height="14" rx="2" fill="#0a1830" stroke="#4488ff44" stroke-width="1"/>
+  <text x="45" y="155" font-family="monospace" font-size="8" fill="#8090b0">GPU-2</text>
+  <circle cx="46" cy="170" r="3.5" fill="#00ff88" filter="url(#ledGlow)"/>
+  <rect x="264" y="148" width="60" height="8" rx="4" fill="#0a1020"/>
+  <rect x="264" y="148" width="55" height="8" rx="4" fill="#5eead4"/>
+  <text x="264" y="172" font-family="monospace" font-size="6.5" fill="#5eead4">92% UTIL</text>
+
+  <!-- GPU 4-8 (compact, showing all 8) -->
+  <g>
+    <!-- GPU 4 -->
+    <rect x="35" y="188" width="300" height="34" rx="3" fill="url(#gpuCard)" stroke="#2a2e45" stroke-width="1"/>
+    <rect x="35" y="190" width="8" height="30" rx="2" fill="url(#amdRed)"/>
+    <text x="52" y="207" font-family="monospace" font-size="8" fill="#8090b0">GPU-3</text>
+    <circle cx="46" cy="207" r="3" fill="#00ff88" filter="url(#ledGlow)"/>
+    <rect x="264" y="196" width="60" height="7" rx="3" fill="#0a1020"/>
+    <rect x="264" y="196" width="46" height="7" rx="3" fill="#5eead4"/>
+    <text x="264" y="218" font-family="monospace" font-size="6.5" fill="#5eead4">77%</text>
+
+    <!-- GPU 5 -->
+    <rect x="35" y="226" width="300" height="34" rx="3" fill="url(#gpuCard)" stroke="#2a2e45" stroke-width="1"/>
+    <rect x="35" y="228" width="8" height="30" rx="2" fill="url(#amdRed)"/>
+    <text x="52" y="245" font-family="monospace" font-size="8" fill="#8090b0">GPU-4</text>
+    <circle cx="46" cy="245" r="3" fill="#00ff88" filter="url(#ledGlow)"/>
+    <rect x="264" y="234" width="60" height="7" rx="3" fill="#0a1020"/>
+    <rect x="264" y="234" width="50" height="7" rx="3" fill="#5eead4"/>
+    <text x="264" y="256" font-family="monospace" font-size="6.5" fill="#5eead4">83%</text>
+
+    <!-- GPU 6 -->
+    <rect x="35" y="264" width="300" height="34" rx="3" fill="url(#gpuCard)" stroke="#2a2e45" stroke-width="1"/>
+    <rect x="35" y="266" width="8" height="30" rx="2" fill="url(#amdRed)"/>
+    <text x="52" y="283" font-family="monospace" font-size="8" fill="#8090b0">GPU-5</text>
+    <circle cx="46" cy="283" r="3" fill="#00ff88" filter="url(#ledGlow)"/>
+    <rect x="264" y="272" width="60" height="7" rx="3" fill="#0a1020"/>
+    <rect x="264" y="272" width="53" height="7" rx="3" fill="#5eead4"/>
+    <text x="264" y="294" font-family="monospace" font-size="6.5" fill="#5eead4">89%</text>
+
+    <!-- GPU 7 -->
+    <rect x="35" y="302" width="300" height="34" rx="3" fill="url(#gpuCard)" stroke="#2a2e45" stroke-width="1"/>
+    <rect x="35" y="304" width="8" height="30" rx="2" fill="url(#amdRed)"/>
+    <text x="52" y="321" font-family="monospace" font-size="8" fill="#8090b0">GPU-6</text>
+    <circle cx="46" cy="321" r="3" fill="#00ff88" filter="url(#ledGlow)"/>
+    <rect x="264" y="310" width="60" height="7" rx="3" fill="#0a1020"/>
+    <rect x="264" y="310" width="44" height="7" rx="3" fill="#5eead4"/>
+    <text x="264" y="332" font-family="monospace" font-size="6.5" fill="#5eead4">73%</text>
+
+    <!-- GPU 8 -->
+    <rect x="35" y="340" width="300" height="34" rx="3" fill="url(#gpuCard)" stroke="#2a2e45" stroke-width="1"/>
+    <rect x="35" y="342" width="8" height="30" rx="2" fill="url(#amdRed)"/>
+    <text x="52" y="359" font-family="monospace" font-size="8" fill="#8090b0">GPU-7</text>
+    <circle cx="46" cy="359" r="3" fill="#00ff88" filter="url(#ledGlow)"/>
+    <rect x="264" y="348" width="60" height="7" rx="3" fill="#0a1020"/>
+    <rect x="264" y="348" width="57" height="7" rx="3" fill="#5eead4"/>
+    <text x="264" y="370" font-family="monospace" font-size="6.5" fill="#5eead4">95%</text>
+  </g>
+
+  <!-- NVLink bridges (connecting GPUs) -->
+  <line x1="350" y1="66" x2="370" y2="66" stroke="#7744ff" stroke-width="2.5" opacity="0.6"/>
+  <line x1="350" y1="114" x2="370" y2="114" stroke="#7744ff" stroke-width="2.5" opacity="0.6"/>
+  <line x1="350" y1="162" x2="370" y2="162" stroke="#7744ff" stroke-width="2.5" opacity="0.6"/>
+
+  <!-- Cable management (right side of rack) -->
+  <g opacity="0.25">
+    <path d="M345 44 Q360 100 355 200 Q350 300 358 430" stroke="#5eead4" stroke-width="2" fill="none"/>
+    <path d="M342 44 Q365 120 358 220 Q352 320 362 430" stroke="#ffaa00" stroke-width="1.5" fill="none"/>
+    <path d="M340 44 Q368 130 360 230 Q354 330 365 430" stroke="#4488ff" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- Rack bottom: power/cooling -->
+  <rect x="35" y="382" width="300" height="44" rx="3" fill="#0e1218" stroke="#1a2030" stroke-width="1"/>
+  <text x="185" y="398" font-family="monospace" font-size="8" fill="#608080" text-anchor="middle">12× COOLING FANS  |  2500W PSU</text>
+  <g fill="none" stroke="#405060" stroke-width="1" opacity="0.5">
+    <circle cx="60" cy="410" r="12"/><circle cx="60" cy="410" r="7"/>
+    <circle cx="92" cy="410" r="12"/><circle cx="92" cy="410" r="7"/>
+    <circle cx="124" cy="410" r="12"/><circle cx="124" cy="410" r="7"/>
+    <circle cx="252" cy="410" r="12"/><circle cx="252" cy="410" r="7"/>
+    <circle cx="284" cy="410" r="12"/><circle cx="284" cy="410" r="7"/>
+    <circle cx="316" cy="410" r="12"/><circle cx="316" cy="410" r="7"/>
+  </g>
+  <!-- Fan rotation indicators -->
+  <line x1="60" y1="398" x2="64" y2="422" stroke="#5eead4" stroke-width="1" opacity="0.4"/>
+  <line x1="48" y1="410" x2="72" y2="410" stroke="#5eead4" stroke-width="1" opacity="0.4"/>
+
+  <!-- ===== RIGHT PANEL: Terminal + Benchmarks ===== -->
+  <rect x="368" y="0" width="432" height="450" fill="url(#termBG)"/>
+  <rect x="368" y="0" width="1" height="450" fill="#5eead422"/>
+
+  <!-- TOP HEADER -->
+  <rect x="368" y="0" width="432" height="44" fill="#04060e"/>
+  <text x="584" y="18" font-family="'Courier New',monospace" font-size="13" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#glowF)">AMD MI300X × 8</text>
+  <text x="584" y="34" font-family="'Courier New',monospace" font-size="9" fill="#40a080" text-anchor="middle">PyTorch · Triton · Distributed Matrix Multiplication</text>
+
+  <!-- Terminal window -->
+  <rect x="378" y="50" width="412" height="168" rx="5" fill="#020408" stroke="#1a2030" stroke-width="1"/>
+  <!-- Term titlebar -->
+  <rect x="378" y="50" width="412" height="18" rx="5" fill="#0c1018"/>
+  <rect x="378" y="60" width="412" height="8" fill="#0c1018"/>
+  <circle cx="392" cy="59" r="5" fill="#ff5f56"/>
+  <circle cx="408" cy="59" r="5" fill="#ffbd2e"/>
+  <circle cx="424" cy="59" r="5" fill="#27c93f"/>
+  <text x="584" y="62" font-family="monospace" font-size="8" fill="#506070" text-anchor="middle">benchmark.py — python3</text>
+  <!-- Terminal text (code output) -->
+  <text x="386" y="83" font-family="'Courier New',monospace" font-size="8.5" fill="#60d090">$ python benchmark.py --gpus 8 --model matmul_opt</text>
+  <text x="386" y="96" font-family="'Courier New',monospace" font-size="8.5" fill="#50a870">Initializing AMD MI300X × 8...</text>
+  <text x="386" y="109" font-family="'Courier New',monospace" font-size="8.5" fill="#506070">Loading Triton kernel: matmul_fp16_batched</text>
+  <text x="386" y="122" font-family="'Courier New',monospace" font-size="8.5" fill="#506070">Warm-up: 50 iterations  ✓</text>
+  <text x="386" y="135" font-family="'Courier New',monospace" font-size="8.5" fill="#60d090">Benchmark Run: 1000 iterations</text>
+  <text x="386" y="148" font-family="'Courier New',monospace" font-size="8.5" fill="#5eead4">  Throughput : <tspan fill="#00ffcc" font-weight="bold">2.41 TFLOPS</tspan>  (+2.4×)</text>
+  <text x="386" y="161" font-family="'Courier New',monospace" font-size="8.5" fill="#5eead4">  Latency    : <tspan fill="#00ffcc" font-weight="bold">4.2ms</tspan>  (-41%)</text>
+  <text x="386" y="174" font-family="'Courier New',monospace" font-size="8.5" fill="#5eead4">  Mem BW     : <tspan fill="#00ffcc" font-weight="bold">5.3 TB/s</tspan>  per GPU</text>
+  <text x="386" y="187" font-family="'Courier New',monospace" font-size="8.5" fill="#60d090">  Status     : <tspan fill="#44ee88">PASSED ✓</tspan></text>
+  <!-- Cursor blink -->
+  <rect x="386" y="196" width="7" height="11" fill="#5eead4" opacity="0.8"/>
+
+  <!-- BENCHMARK CHART -->
+  <text x="378" y="240" font-family="'Courier New',monospace" font-size="10" fill="#80c0a0">THROUGHPUT BENCHMARK  (TFLOPS)</text>
+  <line x1="378" y1="244" x2="790" y2="244" stroke="#5eead422" stroke-width="1"/>
+
+  <!-- Chart axes -->
+  <line x1="398" y1="250" x2="398" y2="375" stroke="#334433" stroke-width="1"/>
+  <line x1="398" y1="375" x2="788" y2="375" stroke="#334433" stroke-width="1"/>
+
+  <!-- Y-axis labels -->
+  <text x="394" y="255" font-family="monospace" font-size="7.5" fill="#507060" text-anchor="end">3.0</text>
+  <text x="394" y="285" font-family="monospace" font-size="7.5" fill="#507060" text-anchor="end">2.0</text>
+  <text x="394" y="315" font-family="monospace" font-size="7.5" fill="#507060" text-anchor="end">1.0</text>
+  <text x="394" y="345" font-family="monospace" font-size="7.5" fill="#507060" text-anchor="end">0.5</text>
+
+  <!-- Grid lines -->
+  <line x1="398" y1="255" x2="788" y2="255" stroke="#1a2a1a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="398" y1="285" x2="788" y2="285" stroke="#1a2a1a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="398" y1="315" x2="788" y2="315" stroke="#1a2a1a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="398" y1="345" x2="788" y2="345" stroke="#1a2a1a" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- BARS: Baseline (CPU) -->
+  <rect x="417" y="358" width="45" height="17" rx="2" fill="url(#barRed)"/>
+  <text x="440" y="370" font-family="monospace" font-size="7" fill="#fff" text-anchor="middle" font-weight="bold">0.18</text>
+  <text x="440" y="387" font-family="monospace" font-size="7" fill="#aa6666" text-anchor="middle">CPU</text>
+
+  <!-- Baseline GPU (no opt) -->
+  <rect x="472" y="322" width="45" height="53" rx="2" fill="url(#barPurple)"/>
+  <text x="495" y="352" font-family="monospace" font-size="7" fill="#fff" text-anchor="middle" font-weight="bold">0.98</text>
+  <text x="495" y="387" font-family="monospace" font-size="7" fill="#9080cc" text-anchor="middle">GPU Base</text>
+
+  <!-- Single MI300X -->
+  <rect x="527" y="295" width="45" height="80" rx="2" fill="url(#barTeal)"/>
+  <text x="550" y="338" font-family="monospace" font-size="7" fill="#002020" text-anchor="middle" font-weight="bold">1.52</text>
+  <text x="550" y="387" font-family="monospace" font-size="7" fill="#5eead4" text-anchor="middle">1× GPU</text>
+
+  <!-- 4× MI300X -->
+  <rect x="582" y="264" width="45" height="111" rx="2" fill="url(#barTeal)"/>
+  <text x="605" y="323" font-family="monospace" font-size="7" fill="#002020" text-anchor="middle" font-weight="bold">2.14</text>
+  <text x="605" y="387" font-family="monospace" font-size="7" fill="#5eead4" text-anchor="middle">4× GPU</text>
+
+  <!-- 8× MI300X optimised -->
+  <rect x="637" y="249" width="50" height="126" rx="2" fill="url(#barTeal)" filter="url(#glowF)"/>
+  <!-- Glow highlight on best bar -->
+  <rect x="637" y="249" width="50" height="126" rx="2" fill="#ffffff" opacity="0.06"/>
+  <text x="662" y="315" font-family="monospace" font-size="8" fill="#002020" text-anchor="middle" font-weight="bold">2.41</text>
+  <text x="662" y="387" font-family="monospace" font-size="7.5" fill="#00ffcc" text-anchor="middle" font-weight="bold">8× Triton</text>
+
+  <!-- "BEST" badge on top of bar -->
+  <rect x="648" y="245" width="38" height="14" rx="3" fill="#00ffcc" opacity="0.9"/>
+  <text x="667" y="256" font-family="monospace" font-size="8" fill="#002020" text-anchor="middle" font-weight="bold">BEST</text>
+
+  <!-- X-axis label -->
+  <text x="584" y="400" font-family="monospace" font-size="8" fill="#507060" text-anchor="middle">Configuration</text>
+
+  <!-- ===== KEY METRICS BADGES ===== -->
+  <!-- Speedup badge -->
+  <rect x="378" y="408" width="120" height="38" rx="5" fill="#0a2010" stroke="#5eead444" stroke-width="1"/>
+  <text x="438" y="424" font-family="'Courier New',monospace" font-size="9" fill="#40a870" text-anchor="middle">SPEEDUP</text>
+  <text x="438" y="440" font-family="'Courier New',monospace" font-size="16" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#glowF)">+2.4×</text>
+
+  <!-- Latency badge -->
+  <rect x="508" y="408" width="120" height="38" rx="5" fill="#0a1a24" stroke="#4488ff44" stroke-width="1"/>
+  <text x="568" y="424" font-family="'Courier New',monospace" font-size="9" fill="#4080b0" text-anchor="middle">LATENCY</text>
+  <text x="568" y="440" font-family="'Courier New',monospace" font-size="16" font-weight="bold" fill="#5588ff" text-anchor="middle" filter="url(#glowF)">-41%</text>
+
+  <!-- Peak TFLOPS -->
+  <rect x="638" y="408" width="148" height="38" rx="5" fill="#0a0e20" stroke="#a78bfa44" stroke-width="1"/>
+  <text x="712" y="424" font-family="'Courier New',monospace" font-size="9" fill="#8070c0" text-anchor="middle">PEAK THROUGHPUT</text>
+  <text x="712" y="440" font-family="'Courier New',monospace" font-size="16" font-weight="bold" fill="#a78bfa" text-anchor="middle" filter="url(#glowF)">2.41 TF/s</text>
+</svg>

@@ -1,0 +1,200 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#080d1a"/>
+      <stop offset="55%" stop-color="#0f1e30"/>
+      <stop offset="100%" stop-color="#0d2215"/>
+    </linearGradient>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0e1f0e"/>
+      <stop offset="100%" stop-color="#060d06"/>
+    </linearGradient>
+    <linearGradient id="deerBody" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c4864a"/>
+      <stop offset="50%" stop-color="#9a5e28"/>
+      <stop offset="100%" stop-color="#6b3810"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#ddeeff"/>
+      <stop offset="60%" stop-color="#aaccee88"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="20%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="#000000cc"/>
+    </radialGradient>
+    <radialGradient id="foliage" cx="50%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#1a3d1a"/>
+      <stop offset="100%" stop-color="#081208"/>
+    </radialGradient>
+    <filter id="glow3">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softBlur">
+      <feGaussianBlur stdDeviation="1"/>
+    </filter>
+    <pattern id="scanlines" x="0" y="0" width="2" height="3" patternUnits="userSpaceOnUse">
+      <rect width="2" height="1" fill="#00ff0008"/>
+    </pattern>
+    <pattern id="noise" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#004400" opacity="0.04"/>
+      <circle cx="1" cy="1" r="0.5" fill="#00ff00" opacity="0.02"/>
+    </pattern>
+  </defs>
+
+  <!-- Sky -->
+  <rect width="800" height="450" fill="url(#sky)"/>
+  <!-- Subtle NV noise -->
+  <rect width="800" height="450" fill="url(#noise)" opacity="0.5"/>
+
+  <!-- Stars -->
+  <g fill="#cce8ff" opacity="0.7">
+    <circle cx="45" cy="28" r="1.1"/><circle cx="120" cy="18" r="0.8"/><circle cx="200" cy="42" r="1"/><circle cx="290" cy="12" r="0.7"/><circle cx="370" cy="33" r="1.1"/><circle cx="450" cy="20" r="0.9"/><circle cx="520" cy="48" r="0.8"/><circle cx="595" cy="15" r="1.1"/><circle cx="665" cy="38" r="0.7"/><circle cx="745" cy="25" r="1"/><circle cx="85" cy="62" r="0.6"/><circle cx="165" cy="75" r="0.8"/><circle cx="495" cy="62" r="0.7"/><circle cx="715" cy="68" r="0.8"/>
+  </g>
+
+  <!-- Moon + glow -->
+  <circle cx="680" cy="58" r="34" fill="url(#moonGlow)" opacity="0.55"/>
+  <circle cx="680" cy="58" r="18" fill="#ddeeff" opacity="0.92"/>
+  <circle cx="674" cy="52" r="4" fill="#bcd0e8" opacity="0.5"/>
+  <circle cx="686" cy="64" r="3" fill="#bcd0e8" opacity="0.4"/>
+
+  <!-- Forest silhouettes (background hills) -->
+  <ellipse cx="120" cy="255" rx="170" ry="75" fill="#080e08"/>
+  <ellipse cx="320" cy="248" rx="190" ry="82" fill="#090f09"/>
+  <ellipse cx="560" cy="252" rx="210" ry="78" fill="#080e08"/>
+  <ellipse cx="740" cy="258" rx="160" ry="70" fill="#090f09"/>
+
+  <!-- Ground plane -->
+  <rect x="0" y="292" width="800" height="158" fill="url(#ground)"/>
+
+  <!-- Grass blades -->
+  <g stroke="#1a3a1a" stroke-width="1.2" opacity="0.6">
+    <path d="M25 294 Q22 278 28 268"/><path d="M38 296 Q36 280 42 270"/><path d="M70 293 Q66 277 74 266"/><path d="M105 295 Q102 279 108 269"/><path d="M145 294 Q142 278 148 268"/><path d="M185 296 Q181 280 188 269"/><path d="M225 293 Q222 277 228 267"/><path d="M270 295 Q266 279 273 268"/><path d="M320 294 Q316 278 323 267"/><path d="M365 296 Q361 280 368 269"/><path d="M415 293 Q411 277 418 267"/><path d="M460 295 Q456 279 463 268"/><path d="M510 294 Q506 278 513 267"/><path d="M558 296 Q554 280 561 269"/><path d="M605 293 Q601 277 608 267"/><path d="M650 295 Q646 279 653 268"/><path d="M700 294 Q696 278 703 267"/><path d="M748 296 Q744 280 751 269"/><path d="M785 293 Q781 277 788 267"/>
+  </g>
+
+  <!-- Trees - left cluster -->
+  <rect x="48" y="205" width="13" height="98" rx="2" fill="#1a0e04"/>
+  <ellipse cx="54" cy="198" rx="42" ry="58" fill="url(#foliage)"/>
+  <ellipse cx="50" cy="185" rx="30" ry="42" fill="#0a1a0a"/>
+  <rect x="140" y="218" width="11" height="84" rx="2" fill="#1a0e04"/>
+  <ellipse cx="146" cy="212" rx="36" ry="50" fill="url(#foliage)"/>
+
+  <!-- Trees - right cluster -->
+  <rect x="632" y="208" width="12" height="94" rx="2" fill="#1a0e04"/>
+  <ellipse cx="638" cy="202" rx="42" ry="56" fill="url(#foliage)"/>
+  <ellipse cx="635" cy="190" rx="32" ry="44" fill="#0a1a0a"/>
+  <rect x="730" y="220" width="11" height="82" rx="2" fill="#1a0e04"/>
+  <ellipse cx="736" cy="214" rx="34" ry="48" fill="url(#foliage)"/>
+
+  <!-- DEER - realistic shapes -->
+  <!-- Shadow -->
+  <ellipse cx="430" cy="343" rx="80" ry="10" fill="#000000" opacity="0.45"/>
+  <!-- Back legs -->
+  <rect x="395" y="295" width="11" height="52" rx="5" fill="#7a4a18" filter="url(#softBlur)"/>
+  <rect x="416" y="298" width="11" height="48" rx="5" fill="#7a4a18" filter="url(#softBlur)"/>
+  <!-- Body torso -->
+  <ellipse cx="435" cy="260" rx="70" ry="40" fill="url(#deerBody)"/>
+  <!-- Front legs -->
+  <rect x="448" y="295" width="11" height="52" rx="5" fill="#8a5020"/>
+  <rect x="469" y="292" width="11" height="55" rx="5" fill="#8a5020"/>
+  <!-- Belly highlight -->
+  <ellipse cx="435" cy="275" rx="50" ry="18" fill="#d09a5a" opacity="0.3"/>
+  <!-- Neck -->
+  <path d="M468 248 Q478 228 482 210" stroke="#a05e28" stroke-width="22" fill="none" stroke-linecap="round"/>
+  <!-- Head -->
+  <ellipse cx="488" cy="196" rx="22" ry="18" fill="#c4864a"/>
+  <!-- Snout -->
+  <ellipse cx="506" cy="205" rx="10" ry="7" fill="#b07038"/>
+  <ellipse cx="510" cy="208" rx="5" ry="3" fill="#6a3018"/>
+  <!-- Eye -->
+  <circle cx="498" cy="192" r="4" fill="#180c06"/>
+  <circle cx="499" cy="191" r="1.5" fill="#ffffff" opacity="0.7"/>
+  <!-- Ear left -->
+  <ellipse cx="476" cy="184" rx="8" ry="13" fill="#d09060" transform="rotate(-25 476 184)"/>
+  <ellipse cx="476" cy="184" rx="4" ry="8" fill="#c87050" transform="rotate(-25 476 184)" opacity="0.6"/>
+  <!-- Ear right -->
+  <ellipse cx="502" cy="181" rx="7" ry="12" fill="#c0804a" transform="rotate(20 502 181)"/>
+  <!-- Antlers -->
+  <path d="M476 183 Q462 158 456 144 Q450 132 442 122" stroke="#5a3210" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <path d="M462 160 Q452 148 448 138" stroke="#5a3210" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M456 148 Q446 140 442 130" stroke="#5a3210" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M500 180 Q513 154 522 140 Q530 128 537 118" stroke="#5a3210" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <path d="M518 148 Q528 136 534 126" stroke="#5a3210" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Tail -->
+  <ellipse cx="370" cy="252" rx="12" ry="9" fill="#e8e0d0" opacity="0.9"/>
+  <!-- Hooves -->
+  <rect x="393" y="344" width="14" height="7" rx="3" fill="#201008"/>
+  <rect x="414" y="343" width="13" height="6" rx="3" fill="#201008"/>
+  <rect x="446" y="344" width="14" height="7" rx="3" fill="#201008"/>
+  <rect x="467" y="344" width="14" height="7" rx="3" fill="#201008"/>
+
+  <!-- Night vision green tint -->
+  <rect width="800" height="450" fill="#00ff22" opacity="0.06"/>
+  <!-- Scanlines -->
+  <rect width="800" height="450" fill="url(#scanlines)" opacity="0.55"/>
+  <!-- Vignette -->
+  <rect width="800" height="450" fill="url(#vignette)"/>
+
+  <!-- YOLO bounding box - main deer -->
+  <rect x="362" y="115" width="190" height="242" fill="none" stroke="#00ee55" stroke-width="2.5"/>
+  <!-- Detection corners -->
+  <path d="M362 115 L362 140 M362 115 L387 115" stroke="#00ff66" stroke-width="4" fill="none"/>
+  <path d="M552 115 L527 115 M552 115 L552 140" stroke="#00ff66" stroke-width="4" fill="none"/>
+  <path d="M362 357 L362 332 M362 357 L387 357" stroke="#00ff66" stroke-width="4" fill="none"/>
+  <path d="M552 357 L527 357 M552 357 L552 332" stroke="#00ff66" stroke-width="4" fill="none"/>
+  <!-- Label -->
+  <rect x="362" y="91" width="148" height="25" rx="3" fill="#00ee55"/>
+  <text x="370" y="108" font-family="'Courier New',monospace" font-size="13" font-weight="bold" fill="#001a00">DEER  96.4%  ⚠</text>
+
+  <!-- Second detection box (head) -->
+  <rect x="462" y="168" width="64" height="58" fill="none" stroke="#ffcc00" stroke-width="1.5" stroke-dasharray="5,2" opacity="0.8"/>
+  <rect x="462" y="152" width="64" height="17" rx="2" fill="#ffcc00" opacity="0.85"/>
+  <text x="466" y="164" font-family="'Courier New',monospace" font-size="9.5" font-weight="bold" fill="#332200">HEAD 93.1%</text>
+
+  <!-- === HUD TOP BAR === -->
+  <rect x="0" y="0" width="800" height="44" fill="#000000bb"/>
+  <!-- REC blink -->
+  <circle cx="22" cy="19" r="7" fill="#ff0000" filter="url(#glow3)" opacity="0.85"/>
+  <circle cx="22" cy="19" r="4" fill="#ff4444"/>
+  <text x="35" y="24" font-family="'Courier New',monospace" font-size="12" font-weight="bold" fill="#ff3333">● REC</text>
+  <!-- Camera info -->
+  <text x="90" y="16" font-family="'Courier New',monospace" font-size="10" fill="#00ff66">CAM-04 | SECTOR: NORTH-FIELD-3</text>
+  <text x="90" y="32" font-family="'Courier New',monospace" font-size="10" fill="#00cc44">YOLOv8s · NIGHT-VISION ON · 30 FPS</text>
+  <!-- Time/Date -->
+  <text x="574" y="16" font-family="'Courier New',monospace" font-size="10" fill="#b0ffb0">2026-03-09  22:47:13</text>
+  <text x="574" y="32" font-family="'Courier New',monospace" font-size="10" fill="#80ee80">TEMP: 14°C  HUMIDITY: 68%</text>
+
+  <!-- === BOTTOM STATUS BAR === -->
+  <rect x="0" y="408" width="800" height="42" fill="#000000bb"/>
+  <text x="10" y="424" font-family="'Courier New',monospace" font-size="9.5" fill="#00ff66">FPS: 30 | 1080p</text>
+  <text x="10" y="440" font-family="'Courier New',monospace" font-size="9.5" fill="#00cc44">GPU: 43% | MEM: 2.1GB</text>
+  <rect x="118" y="410" width="148" height="32" rx="3" fill="#002600aa"/>
+  <text x="126" y="424" font-family="'Courier New',monospace" font-size="9.5" fill="#00ff88">OBJECTS: 1 | CLASS: DEER</text>
+  <text x="126" y="440" font-family="'Courier New',monospace" font-size="9.5" fill="#00dd66">RISK LEVEL: HIGH</text>
+  <rect x="278" y="410" width="130" height="32" rx="3" fill="#440000aa"/>
+  <text x="284" y="424" font-family="'Courier New',monospace" font-size="10" font-weight="bold" fill="#ff3344" filter="url(#glow3)">⚠ ALERT SENT</text>
+  <text x="284" y="440" font-family="'Courier New',monospace" font-size="9.5" fill="#ff8888">GSM + LoRa · SMS</text>
+  <!-- Confidence bar -->
+  <text x="426" y="424" font-family="'Courier New',monospace" font-size="9.5" fill="#aaaaaa">CONFIDENCE</text>
+  <rect x="426" y="430" width="110" height="8" rx="4" fill="#001a00"/>
+  <rect x="426" y="430" width="106" height="8" rx="4" fill="#00ee55"/>
+  <text x="542" y="440" font-family="'Courier New',monospace" font-size="9.5" fill="#00ee55">96.4%</text>
+  <text x="614" y="424" font-family="'Courier New',monospace" font-size="9.5" fill="#aaaaaa">IoT SENSOR: ACTIVE</text>
+  <text x="614" y="440" font-family="'Courier New',monospace" font-size="9.5" fill="#88ff88">ZONE: AG-03</text>
+
+  <!-- Left mini panel: map -->
+  <rect x="7" y="52" width="94" height="80" rx="5" fill="#000000aa" stroke="#00ff6644" stroke-width="1"/>
+  <text x="13" y="65" font-family="'Courier New',monospace" font-size="8" fill="#00ff66">ZONE MAP</text>
+  <rect x="11" y="68" width="84" height="58" rx="2" fill="#001400"/>
+  <line x1="11" y1="88" x2="95" y2="88" stroke="#00440022" stroke-width="1"/>
+  <line x1="11" y1="107" x2="95" y2="107" stroke="#00440022" stroke-width="1"/>
+  <line x1="38" y1="68" x2="38" y2="126" stroke="#00440022" stroke-width="1"/>
+  <line x1="66" y1="68" x2="66" y2="126" stroke="#00440022" stroke-width="1"/>
+  <!-- Cam marker -->
+  <circle cx="52" cy="97" r="4" fill="#00ff66" opacity="0.9"/>
+  <text x="57" y="100" font-family="monospace" font-size="6" fill="#00ff66">CAM</text>
+  <!-- Deer marker -->
+  <circle cx="70" cy="84" r="4.5" fill="#ff4444" opacity="0.95"/>
+  <circle cx="70" cy="84" r="8" fill="none" stroke="#ff4444" stroke-width="1.2" opacity="0.5"/>
+</svg>

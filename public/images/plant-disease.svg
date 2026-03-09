@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060c0a"/>
+      <stop offset="100%" stop-color="#08120a"/>
+    </linearGradient>
+    <!-- Leaf gradients -->
+    <linearGradient id="leafGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2d7a3a"/>
+      <stop offset="30%" stop-color="#1f9a35"/>
+      <stop offset="70%" stop-color="#1a7a2a"/>
+      <stop offset="100%" stop-color="#145a20"/>
+    </linearGradient>
+    <linearGradient id="leafLight" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3aaa4a" opacity="0.4"/>
+      <stop offset="50%" stop-color="#4dc85e" opacity="0.6"/>
+      <stop offset="100%" stop-color="#3aaa4a" opacity="0.3"/>
+    </linearGradient>
+    <!-- Disease spot gradient -->
+    <radialGradient id="diseaseSpot" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#cc8820"/>
+      <stop offset="50%" stop-color="#aa6010"/>
+      <stop offset="100%" stop-color="#884400"/>
+    </radialGradient>
+    <radialGradient id="diseaseSpot2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#d4a030"/>
+      <stop offset="50%" stop-color="#b88020"/>
+      <stop offset="100%" stop-color="#8a5810"/>
+    </radialGradient>
+    <radialGradient id="leafGlow" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#60ff8040"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <!-- Panel styles -->
+    <linearGradient id="panelBG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#080e0c"/>
+      <stop offset="100%" stop-color="#040806"/>
+    </linearGradient>
+    <linearGradient id="barGreen" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="100%" stop-color="#00c4a0"/>
+    </linearGradient>
+    <linearGradient id="barYellow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="barRed" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f87171"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <filter id="glowF">
+      <feGaussianBlur stdDeviation="3" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="softF">
+      <feGaussianBlur stdDeviation="1.2"/>
+    </filter>
+    <filter id="leafFilter">
+      <feGaussianBlur stdDeviation="0.5"/>
+    </filter>
+    <!-- Vein pattern -->
+    <pattern id="leafVeins" x="0" y="0" width="200" height="300" patternUnits="userSpaceOnUse">
+      <path d="M100 0 Q95 75 100 150 Q105 225 100 300" stroke="#1a8030" stroke-width="1.5" fill="none" opacity="0.4"/>
+      <path d="M100 60 Q80 72 60 80" stroke="#1a8030" stroke-width="0.8" fill="none" opacity="0.35"/>
+      <path d="M100 90 Q75 105 50 108" stroke="#1a8030" stroke-width="0.8" fill="none" opacity="0.3"/>
+      <path d="M100 120 Q78 138 55 138" stroke="#1a8030" stroke-width="0.8" fill="none" opacity="0.3"/>
+      <path d="M100 60 Q120 72 140 80" stroke="#1a8030" stroke-width="0.8" fill="none" opacity="0.35"/>
+      <path d="M100 90 Q125 105 150 108" stroke="#1a8030" stroke-width="0.8" fill="none" opacity="0.3"/>
+      <path d="M100 120 Q122 138 145 138" stroke="#1a8030" stroke-width="0.8" fill="none" opacity="0.3"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+
+  <!-- ======= LEAF (main visual) ======= -->
+  <!-- Leaf shadow -->
+  <ellipse cx="302" cy="310" rx="185" ry="25" fill="#000000" opacity="0.5" filter="url(#softF)"/>
+
+  <!-- Leaf base shape (realistic bean/oval leaf) -->
+  <path d="M300 55 Q420 60 460 110 Q510 170 500 240 Q490 305 450 340 Q410 370 360 375 Q310 380 270 355 Q220 325 185 275 Q148 215 155 155 Q165 95 220 68 Q250 56 300 55Z" fill="url(#leafGreen)" filter="url(#leafFilter)"/>
+
+  <!-- Leaf surface texture/veins -->
+  <path d="M300 55 Q420 60 460 110 Q510 170 500 240 Q490 305 450 340 Q410 370 360 375 Q310 380 270 355 Q220 325 185 275 Q148 215 155 155 Q165 95 220 68 Q250 56 300 55Z" fill="url(#leafVeins)" opacity="0.7"/>
+
+  <!-- Leaf sheen/highlight -->
+  <path d="M300 55 Q370 58 415 95 Q450 130 455 170 Q440 160 400 140 Q350 115 300 110 Q260 108 230 125 Q210 105 220 68 Q250 56 300 55Z" fill="url(#leafLight)" opacity="0.3"/>
+
+  <!-- Main central vein -->
+  <path d="M300 60 Q304 150 310 215 Q318 280 340 360" stroke="#0d6020" stroke-width="2.8" fill="none"/>
+
+  <!-- Secondary veins left -->
+  <path d="M302 100 Q268 118 240 125" stroke="#0d6020" stroke-width="1.3" fill="none" opacity="0.7"/>
+  <path d="M304 140 Q262 162 228 165" stroke="#0d6020" stroke-width="1.2" fill="none" opacity="0.65"/>
+  <path d="M306 180 Q265 205 230 205" stroke="#0d6020" stroke-width="1.1" fill="none" opacity="0.6"/>
+  <path d="M308 220 Q270 245 240 244" stroke="#0d6020" stroke-width="1" fill="none" opacity="0.55"/>
+  <path d="M314 260 Q285 280 265 278" stroke="#0d6020" stroke-width="0.9" fill="none" opacity="0.5"/>
+  <path d="M322 300 Q300 315 290 313" stroke="#0d6020" stroke-width="0.8" fill="none" opacity="0.45"/>
+
+  <!-- Secondary veins right -->
+  <path d="M302 100 Q338 114 370 118" stroke="#0d6020" stroke-width="1.3" fill="none" opacity="0.7"/>
+  <path d="M304 140 Q348 158 390 156" stroke="#0d6020" stroke-width="1.2" fill="none" opacity="0.65"/>
+  <path d="M306 180 Q352 200 400 196" stroke="#0d6020" stroke-width="1.1" fill="none" opacity="0.6"/>
+  <path d="M308 220 Q358 238 408 232" stroke="#0d6020" stroke-width="1" fill="none" opacity="0.55"/>
+  <path d="M314 260 Q360 272 406 266" stroke="#0d6020" stroke-width="0.9" fill="none" opacity="0.5"/>
+  <path d="M322 300 Q366 310 406 304" stroke="#0d6020" stroke-width="0.8" fill="none" opacity="0.45"/>
+
+  <!-- DISEASE SPOTS (Early Blight - brown circular lesions with yellow halos) -->
+  <!-- Spot 1 (large, early blight) -->
+  <circle cx="370" cy="165" r="26" fill="#88550a" opacity="0.6" filter="url(#softF)"/>
+  <circle cx="370" cy="165" r="22" fill="url(#diseaseSpot)"/>
+  <circle cx="370" cy="165" r="16" fill="#9a6014"/>
+  <circle cx="370" cy="165" r="10" fill="#aa6818"/>
+  <circle cx="370" cy="165" r="4" fill="#c0800a"/>
+
+  <!-- Spot 2 (medium) -->
+  <circle cx="248" cy="220" r="20" fill="#884408" opacity="0.55" filter="url(#softF)"/>
+  <circle cx="248" cy="220" r="17" fill="url(#diseaseSpot2)"/>
+  <circle cx="248" cy="220" r="11" fill="#9a6010"/>
+  <circle cx="248" cy="220" r="5" fill="#b87020"/>
+
+  <!-- Spot 3 (small) -->
+  <circle cx="420" cy="275" r="14" fill="#775008" opacity="0.5" filter="url(#softF)"/>
+  <circle cx="420" cy="275" r="12" fill="url(#diseaseSpot)"/>
+  <circle cx="420" cy="275" r="7" fill="#8a5810"/>
+
+  <!-- Spot 4 (tiny) -->
+  <circle cx="285" cy="300" r="10" fill="#664408" opacity="0.5" filter="url(#softF)"/>
+  <circle cx="285" cy="300" r="8" fill="url(#diseaseSpot2)"/>
+
+  <!-- Spot 5 (medium-large) -->
+  <circle cx="340" cy="240" r="18" fill="#774408" opacity="0.5" filter="url(#softF)"/>
+  <circle cx="340" cy="240" r="15" fill="url(#diseaseSpot)"/>
+  <circle cx="340" cy="240" r="9" fill="#9a5c0c"/>
+
+  <!-- Leaf glow effect (sunlight) -->
+  <path d="M300 55 Q420 60 460 110 Q510 170 500 240 Q490 305 450 340 Q410 370 360 375 Q310 380 270 355 Q220 325 185 275 Q148 215 155 155 Q165 95 220 68 Q250 56 300 55Z" fill="url(#leafGlow)" opacity="0.7"/>
+
+  <!-- Leaf stem -->
+  <path d="M300 58 Q295 35 290 18" stroke="#1a5a20" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <path d="M290 18 Q286 8 284 0" stroke="#1a5a20" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- ======= DETECTION BOX overlays ======= -->
+  <!-- Bounding box for spot 1 -->
+  <rect x="342" y="137" width="57" height="57" fill="none" stroke="#ff4444" stroke-width="2"/>
+  <path d="M342 137 L342 150 M342 137 L355 137" stroke="#ff5555" stroke-width="3" fill="none"/>
+  <path d="M399 137 L386 137 M399 137 L399 150" stroke="#ff5555" stroke-width="3" fill="none"/>
+  <path d="M342 194 L342 181 M342 194 L355 194" stroke="#ff5555" stroke-width="3" fill="none"/>
+  <path d="M399 194 L386 194 M399 194 L399 181" stroke="#ff5555" stroke-width="3" fill="none"/>
+  <rect x="342" y="120" width="96" height="18" rx="2" fill="#ff4444"/>
+  <text x="348" y="133" font-family="'Courier New',monospace" font-size="10" font-weight="bold" fill="white">Early Blight 93.8%</text>
+
+  <!-- Bounding box for spot 2 -->
+  <rect x="228" y="200" width="41" height="41" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <rect x="228" y="185" width="74" height="16" rx="2" fill="#fbbf24" opacity="0.85"/>
+  <text x="232" y="197" font-family="'Courier New',monospace" font-size="9.5" font-weight="bold" fill="#332200">Septoria 82.1%</text>
+
+  <!-- Bounding box for spot 5 -->
+  <rect x="320" y="222" width="38" height="38" fill="none" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="4,2" opacity="0.8"/>
+
+  <!-- ======= RIGHT PANEL (CNN + Results) ======= -->
+  <!-- Panel background -->
+  <rect x="542" y="0" width="258" height="450" fill="url(#panelBG)"/>
+  <rect x="542" y="0" width="1" height="450" fill="#5eead422"/>
+
+  <!-- Panel title -->
+  <text x="671" y="22" font-family="'Courier New',monospace" font-size="12" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#glowF)">CNN CLASSIFIER</text>
+  <text x="671" y="38" font-family="'Courier New',monospace" font-size="9" fill="#40a080" text-anchor="middle">TensorFlow · Keras · EfficientNetB3</text>
+
+  <!-- Divider -->
+  <line x1="552" y1="46" x2="790" y2="46" stroke="#5eead422" stroke-width="1"/>
+
+  <!-- Confidence bars - Disease classes -->
+  <!-- Label -->
+  <text x="560" y="62" font-family="'Courier New',monospace" font-size="9" fill="#80c0a0">DETECTION RESULTS</text>
+  <!-- Early Blight -->
+  <text x="558" y="80" font-family="'Courier New',monospace" font-size="9" fill="#ff8888">Early Blight</text>
+  <rect x="558" y="83" width="220" height="11" rx="3" fill="#1a0808"/>
+  <rect x="558" y="83" width="206" height="11" rx="3" fill="url(#barRed)"/>
+  <text x="766" y="93" font-family="'Courier New',monospace" font-size="9" font-weight="bold" fill="#ff8888">93.8%</text>
+  <!-- Septoria -->
+  <text x="558" y="110" font-family="'Courier New',monospace" font-size="9" fill="#fbbf24">Septoria Leaf</text>
+  <rect x="558" y="113" width="220" height="11" rx="3" fill="#1a1208"/>
+  <rect x="558" y="113" width="180" height="11" rx="3" fill="url(#barYellow)"/>
+  <text x="766" y="123" font-family="'Courier New',monospace" font-size="9" font-weight="bold" fill="#fbbf24">82.1%</text>
+  <!-- Healthy -->
+  <text x="558" y="140" font-family="'Courier New',monospace" font-size="9" fill="#5eead4">Healthy Leaf</text>
+  <rect x="558" y="143" width="220" height="11" rx="3" fill="#001a14"/>
+  <rect x="558" y="143" width="24" height="11" rx="3" fill="url(#barGreen)"/>
+  <text x="766" y="153" font-family="'Courier New',monospace" font-size="9" font-weight="bold" fill="#5eead4">11.2%</text>
+  <!-- Late Blight -->
+  <text x="558" y="170" font-family="'Courier New',monospace" font-size="9" fill="#a78bfa">Late Blight</text>
+  <rect x="558" y="173" width="220" height="11" rx="3" fill="#0a0818"/>
+  <rect x="558" y="173" width="13" height="11" rx="3" fill="#a78bfa"/>
+  <text x="766" y="183" font-family="'Courier New',monospace" font-size="9" font-weight="bold" fill="#a78bfa">5.9%</text>
+
+  <!-- Divider -->
+  <line x1="552" y1="196" x2="790" y2="196" stroke="#5eead422" stroke-width="1"/>
+
+  <!-- Metrics grid -->
+  <text x="560" y="212" font-family="'Courier New',monospace" font-size="9" fill="#80c0a0">MODEL METRICS</text>
+  <!-- Accuracy -->
+  <rect x="556" y="218" width="112" height="48" rx="4" fill="#081a10" stroke="#5eead420" stroke-width="1"/>
+  <text x="612" y="234" font-family="'Courier New',monospace" font-size="8.5" fill="#60a880" text-anchor="middle">ACCURACY</text>
+  <text x="612" y="253" font-family="'Courier New',monospace" font-size="18" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#glowF)">96.4%</text>
+  <!-- F1 Score -->
+  <rect x="678" y="218" width="112" height="48" rx="4" fill="#081a10" stroke="#5eead420" stroke-width="1"/>
+  <text x="734" y="234" font-family="'Courier New',monospace" font-size="8.5" fill="#60a880" text-anchor="middle">F1 SCORE</text>
+  <text x="734" y="253" font-family="'Courier New',monospace" font-size="18" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#glowF)">0.961</text>
+  <!-- Precision -->
+  <rect x="556" y="274" width="112" height="48" rx="4" fill="#081a10" stroke="#5eead420" stroke-width="1"/>
+  <text x="612" y="290" font-family="'Courier New',monospace" font-size="8.5" fill="#60a880" text-anchor="middle">PRECISION</text>
+  <text x="612" y="309" font-family="'Courier New',monospace" font-size="18" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#glowF)">0.958</text>
+  <!-- Recall -->
+  <rect x="678" y="274" width="112" height="48" rx="4" fill="#081a10" stroke="#5eead420" stroke-width="1"/>
+  <text x="734" y="290" font-family="'Courier New',monospace" font-size="8.5" fill="#60a880" text-anchor="middle">RECALL</text>
+  <text x="734" y="309" font-family="'Courier New',monospace" font-size="18" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#glowF)">0.964</text>
+
+  <!-- Divider -->
+  <line x1="552" y1="332" x2="790" y2="332" stroke="#5eead422" stroke-width="1"/>
+
+  <!-- CNN Architecture mini diagram -->
+  <text x="560" y="348" font-family="'Courier New',monospace" font-size="9" fill="#80c0a0">ARCHITECTURE</text>
+  <!-- Input layer -->
+  <rect x="557" y="355" width="28" height="58" rx="3" fill="#0f2a18" stroke="#5eead444" stroke-width="1"/>
+  <text x="571" y="388" font-family="monospace" font-size="7" fill="#5eead4" text-anchor="middle" writing-mode="tb">INPUT</text>
+  <!-- Conv layers -->
+  <rect x="591" y="360" width="22" height="50" rx="3" fill="#0f2a18" stroke="#5eead444" stroke-width="1"/>
+  <rect x="619" y="362" width="18" height="46" rx="3" fill="#0f2a18" stroke="#5eead444" stroke-width="1"/>
+  <rect x="643" y="364" width="16" height="42" rx="3" fill="#0f2a18" stroke="#5eead444" stroke-width="1"/>
+  <!-- MaxPool -->
+  <rect x="665" y="368" width="14" height="36" rx="3" fill="#0a2010" stroke="#40886022" stroke-width="1"/>
+  <!-- FC layers -->
+  <rect x="685" y="365" width="12" height="38" rx="3" fill="#0f1a2a" stroke="#8060ff44" stroke-width="1"/>
+  <rect x="703" y="370" width="10" height="30" rx="3" fill="#0f1a2a" stroke="#8060ff44" stroke-width="1"/>
+  <!-- Output -->
+  <rect x="719" y="372" width="24" height="26" rx="3" fill="#2a0f0f" stroke="#ff666644" stroke-width="1"/>
+  <text x="731" y="389" font-family="monospace" font-size="6.5" fill="#ff8888" text-anchor="middle">OUT</text>
+  <!-- Arrow -->
+  <line x1="744" y1="385" x2="760" y2="385" stroke="#5eead4" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="763" y="389" font-family="monospace" font-size="8" fill="#ff8888" font-weight="bold">4</text>
+  <text x="553" y="425" font-family="'Courier New',monospace" font-size="8" fill="#507060">Input · Conv2D × 3 · MaxPool · FC</text>
+  <text x="553" y="440" font-family="'Courier New',monospace" font-size="8" fill="#507060">Dataset: 54,306 leaf images</text>
+
+  <!-- TOP APP BAR -->
+  <rect x="0" y="0" width="542" height="44" fill="#040a06e0"/>
+  <text x="16" y="20" font-family="'Courier New',monospace" font-size="13" font-weight="bold" fill="#5eead4" filter="url(#glowF)">PlantGuard AI</text>
+  <text x="16" y="36" font-family="'Courier New',monospace" font-size="9" fill="#40a870">Disease Detection in Plant Leaves · CNN · Computer Vision</text>
+  <!-- Status pill -->
+  <rect x="420" y="8" width="108" height="26" rx="13" fill="#1a3a20" stroke="#5eead444" stroke-width="1"/>
+  <circle cx="434" cy="21" r="5" fill="#44ee88" filter="url(#glowF)"/>
+  <text x="444" y="25" font-family="'Courier New',monospace" font-size="10" fill="#44ee88">ANALYSING</text>
+
+  <!-- BOTTOM status left -->
+  <rect x="0" y="408" width="542" height="42" fill="#040a06e0"/>
+  <text x="14" y="424" font-family="'Courier New',monospace" font-size="9" fill="#60a070">IMAGE: tomato_leaf_0042.jpg  |  SIZE: 256×256</text>
+  <text x="14" y="440" font-family="'Courier New',monospace" font-size="9" fill="#508060">PREDICTION: Early Blight  |  SEVERITY: HIGH</text>
+</svg>

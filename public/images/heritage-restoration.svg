@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <!-- Degraded stone (left panel) -->
+    <linearGradient id="stoneOld" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5a4a38"/>
+      <stop offset="40%" stop-color="#4a3c2c"/>
+      <stop offset="100%" stop-color="#3a2e20"/>
+    </linearGradient>
+    <!-- Restored stone (right panel) -->
+    <linearGradient id="stoneNew" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b89a70"/>
+      <stop offset="40%" stop-color="#a08050"/>
+      <stop offset="100%" stop-color="#8a6a3a"/>
+    </linearGradient>
+    <!-- Sky gradients -->
+    <linearGradient id="skyOld" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2420"/>
+      <stop offset="100%" stop-color="#3d3530"/>
+    </linearGradient>
+    <linearGradient id="skyNew" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a6fa8"/>
+      <stop offset="50%" stop-color="#6a9fce"/>
+      <stop offset="100%" stop-color="#a8c8e8"/>
+    </linearGradient>
+    <!-- Panel BG -->
+    <linearGradient id="panelBG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1520"/>
+      <stop offset="100%" stop-color="#060a12"/>
+    </linearGradient>
+    <!-- Divider glow -->
+    <linearGradient id="divGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5eead4"/>
+      <stop offset="50%" stop-color="#00ffcc"/>
+      <stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+    <!-- Ground degraded -->
+    <linearGradient id="groundOld" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2a2218"/>
+      <stop offset="100%" stop-color="#1a1410"/>
+    </linearGradient>
+    <!-- Ground restored -->
+    <linearGradient id="groundNew" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a6040"/>
+      <stop offset="100%" stop-color="#2a3a20"/>
+    </linearGradient>
+    <!-- Overlay filter for scan line effect -->
+    <filter id="scanFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" result="noise"/>
+      <feColorMatrix type="saturate" values="0" in="noise" result="grayNoise"/>
+      <feComposite in="SourceGraphic" in2="grayNoise" operator="in"/>
+    </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="2.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="textGlow">
+      <feGaussianBlur stdDeviation="2" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Crack pattern for old stone -->
+    <pattern id="crackPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M10 0 Q15 12 8 22 Q3 30 12 40 Q18 48 10 50" stroke="#2a1808" stroke-width="0.8" fill="none" opacity="0.4"/>
+      <path d="M30 5 Q35 18 28 28 Q22 35 30 42" stroke="#2a1808" stroke-width="0.6" fill="none" opacity="0.3"/>
+      <path d="M0 20 Q12 22 18 18 Q24 14 35 20" stroke="#1a1208" stroke-width="0.5" fill="none" opacity="0.25"/>
+    </pattern>
+    <!-- Moss spots -->
+    <pattern id="moss" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="8" cy="8" r="4" fill="#3a5a2a" opacity="0.5"/>
+      <circle cx="22" cy="20" r="3" fill="#2a4a1a" opacity="0.4"/>
+      <circle cx="15" cy="15" r="2" fill="#4a6a3a" opacity="0.35"/>
+    </pattern>
+  </defs>
+
+  <!-- Outer frame -->
+  <rect width="800" height="450" fill="url(#panelBG)"/>
+
+  <!-- TOP HEADER BAR -->
+  <rect x="0" y="0" width="800" height="50" fill="#060c18"/>
+  <text x="400" y="20" font-family="'Courier New',monospace" font-size="14" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#textGlow)">AI HERITAGE RESTORATION SYSTEM</text>
+  <text x="400" y="38" font-family="'Courier New',monospace" font-size="10" fill="#40a080" text-anchor="middle">Stable Diffusion v2.1 · Realistic Vision · Soft Edge Detection</text>
+
+  <!-- LEFT PANEL (BEFORE — degraded) -->
+  <rect x="0" y="50" width="390" height="340" fill="url(#skyOld)"/>
+  <!-- Overcast clouds (old) -->
+  <ellipse cx="80" cy="90" rx="70" ry="30" fill="#4a4038" opacity="0.7"/>
+  <ellipse cx="200" cy="80" rx="90" ry="35" fill="#3e3530" opacity="0.7"/>
+  <ellipse cx="340" cy="95" rx="80" ry="28" fill="#4a4038" opacity="0.6"/>
+  <!-- Ground (old) -->
+  <rect x="0" y="340" width="390" height="50" fill="url(#groundOld)"/>
+  <rect x="0" y="340" width="390" height="8" fill="#1a1410" opacity="0.6"/>
+  <!-- Temple base platform (degraded) -->
+  <rect x="40" y="315" width="310" height="30" rx="2" fill="#3a2e22"/>
+  <rect x="70" y="305" width="250" height="15" rx="2" fill="#3e3228"/>
+  <!-- Temple columns - left wing (cracked) -->
+  <rect x="55" y="170" width="22" height="140" fill="url(#stoneOld)"/>
+  <rect x="55" y="170" width="22" height="140" fill="url(#crackPattern)"/>
+  <rect x="85" y="180" width="20" height="130" fill="url(#stoneOld)"/>
+  <rect x="85" y="180" width="20" height="130" fill="url(#crackPattern)" opacity="0.6"/>
+  <!-- Temple columns - right wing (cracked) -->
+  <rect x="245" y="175" width="20" height="135" fill="url(#stoneOld)"/>
+  <rect x="245" y="175" width="20" height="135" fill="url(#crackPattern)"/>
+  <rect x="275" y="168" width="22" height="142" fill="url(#stoneOld)"/>
+  <rect x="275" y="168" width="22" height="142" fill="url(#crackPattern)" opacity="0.6"/>
+  <!-- Temple main structure (degraded) -->
+  <rect x="105" y="140" width="140" height="170" fill="url(#stoneOld)"/>
+  <rect x="105" y="140" width="140" height="170" fill="url(#crackPattern)"/>
+  <!-- Moss on main structure -->
+  <rect x="105" y="140" width="140" height="170" fill="url(#moss)" opacity="0.6"/>
+  <!-- Temple shikhara (degraded, broken top) -->
+  <polygon points="175,65 145,140 205,140" fill="url(#stoneOld)"/>
+  <polygon points="175,65 145,140 205,140" fill="url(#crackPattern)" opacity="0.7"/>
+  <!-- Broken pieces -->
+  <polygon points="162,80 145,100 158,100" fill="#2a2018" opacity="0.8"/>
+  <rect x="148" y="100" width="10" height="6" rx="1" fill="#2a2018" transform="rotate(-15 148 100)"/>
+  <!-- Archway (broken) entrance -->
+  <path d="M140 310 L140 240 Q175 210 210 240 L210 310" fill="#2a2018"/>
+  <!-- Scattered debris -->
+  <rect x="60" y="322" width="18" height="8" rx="1" fill="#382a1e" transform="rotate(-8 60 322)"/>
+  <rect x="290" y="318" width="22" height="10" rx="1" fill="#382a1e" transform="rotate(12 290 318)"/>
+  <rect x="110" y="326" width="14" height="6" rx="1" fill="#2e2416" transform="rotate(-5 110 326)"/>
+  <!-- Erosion marks -->
+  <line x1="120" y1="140" x2="128" y2="200" stroke="#1a1008" stroke-width="2" opacity="0.5"/>
+  <line x1="180" y1="145" x2="185" y2="210" stroke="#1a1008" stroke-width="1.5" opacity="0.4"/>
+  <!-- Panel label -->
+  <rect x="10" y="58" width="80" height="22" rx="3" fill="#5a2220"/>
+  <text x="50" y="73" font-family="'Courier New',monospace" font-size="11" font-weight="bold" fill="#ffaaaa" text-anchor="middle">BEFORE</text>
+
+  <!-- RIGHT PANEL (AFTER — restored) -->
+  <rect x="410" y="50" width="390" height="340" fill="url(#skyNew)"/>
+  <!-- Beautiful clouds (restored) -->
+  <ellipse cx="500" cy="85" rx="70" ry="22" fill="#ffffff" opacity="0.85"/>
+  <ellipse cx="580" cy="78" rx="55" ry="18" fill="#f0f8ff" opacity="0.8"/>
+  <ellipse cx="700" cy="88" rx="65" ry="20" fill="#ffffff" opacity="0.75"/>
+  <ellipse cx="640" cy="74" rx="45" ry="15" fill="#f5fbff" opacity="0.7"/>
+  <!-- Sunlight rays -->
+  <line x1="620" y1="50" x2="580" y2="140" stroke="#ffe090" stroke-width="18" opacity="0.08"/>
+  <line x1="640" y1="50" x2="610" y2="145" stroke="#ffe090" stroke-width="12" opacity="0.07"/>
+  <!-- Ground restored (lush green) -->
+  <rect x="410" y="340" width="390" height="50" fill="url(#groundNew)"/>
+  <rect x="410" y="340" width="390" height="6" fill="#3a5030" opacity="0.6"/>
+  <!-- Grass tufts -->
+  <g stroke="#4a7040" stroke-width="1" opacity="0.7">
+    <path d="M425 342 Q422 334 428 328"/><path d="M445 342 Q443 334 448 328"/><path d="M480 342 Q477 334 483 328"/><path d="M520 342 Q517 334 523 328"/><path d="M560 342 Q557 334 563 328"/><path d="M600 342 Q597 334 603 328"/><path d="M640 342 Q637 334 643 328"/><path d="M680 342 Q677 334 683 328"/><path d="M720 342 Q717 334 723 328"/><path d="M760 342 Q757 334 763 328"/>
+  </g>
+  <!-- Temple base (restored) -->
+  <rect x="450" y="315" width="310" height="30" rx="2" fill="#c4a070"/>
+  <rect x="480" y="305" width="250" height="12" rx="2" fill="#b89060"/>
+  <!-- Decorative border on base -->
+  <rect x="450" y="315" width="310" height="4" fill="#d4b080" opacity="0.7"/>
+  <!-- Temple columns - left wing (restored) -->
+  <rect x="465" y="165" width="22" height="145" fill="url(#stoneNew)"/>
+  <rect x="495" y="178" width="20" height="132" fill="url(#stoneNew)"/>
+  <!-- Column capitals -->
+  <rect x="461" y="162" width="30" height="8" rx="2" fill="#caa878"/>
+  <rect x="491" y="175" width="28" height="7" rx="2" fill="#c8a070"/>
+  <!-- Temple columns - right wing (restored) -->
+  <rect x="655" y="168" width="20" height="142" fill="url(#stoneNew)"/>
+  <rect x="685" y="162" width="22" height="148" fill="url(#stoneNew)"/>
+  <rect x="651" y="165" width="28" height="8" rx="2" fill="#caa878"/>
+  <rect x="682" y="158" width="30" height="8" rx="2" fill="#c8a070"/>
+  <!-- Temple main structure (restored, gleaming) -->
+  <rect x="515" y="135" width="140" height="175" fill="url(#stoneNew)"/>
+  <!-- Window detail on front -->
+  <rect x="555" y="188" width="60" height="70" rx="5" fill="#7a5530"/>
+  <path d="M555 188 Q585 168 615 188" fill="#9a7050"/>
+  <!-- Door archway (restored) -->
+  <path d="M550 315 L550 240 Q585 210 620 240 L620 315" fill="#6a4822"/>
+  <path d="M550 240 Q585 215 620 240" fill="#9a7048"/>
+  <!-- Temple shikhara (fully restored, ornate) -->
+  <polygon points="585,60 520,135 650,135" fill="url(#stoneNew)"/>
+  <!-- Shikhara tiers -->
+  <polygon points="585,78 532,120 638,120" fill="#b89060"/>
+  <polygon points="585,92 542,115 628,115" fill="#c8a070"/>
+  <!-- Top finial/kalash -->
+  <ellipse cx="585" cy="60" rx="10" ry="8" fill="#d4b060"/>
+  <rect x="582" y="53" width="6" height="12" fill="#c4a050"/>
+  <circle cx="585" cy="52" r="5" fill="#e0c060"/>
+  <!-- Decorative carvings on main structure -->
+  <rect x="519" y="195" width="36" height="4" rx="2" fill="#c8a868" opacity="0.7"/>
+  <rect x="615" y="195" width="36" height="4" rx="2" fill="#c8a868" opacity="0.7"/>
+  <rect x="519" y="210" width="36" height="3" rx="1.5" fill="#b89858" opacity="0.5"/>
+  <!-- Small decorative elements -->
+  <circle cx="535" cy="168" r="5" fill="#d4a848" opacity="0.7"/>
+  <circle cx="635" cy="168" r="5" fill="#d4a848" opacity="0.7"/>
+  <!-- Panel label -->
+  <rect x="418" y="58" width="76" height="22" rx="3" fill="#1a4a28"/>
+  <text x="456" y="73" font-family="'Courier New',monospace" font-size="11" font-weight="bold" fill="#88ffcc" text-anchor="middle">AFTER</text>
+
+  <!-- AI DIVIDER - center scanning line -->
+  <rect x="390" y="50" width="20" height="340" fill="#050c18"/>
+  <rect x="396" y="50" width="8" height="340" fill="url(#divGlow)" opacity="0.7" filter="url(#glow2)"/>
+  <rect x="397" y="50" width="6" height="340" fill="#00ffcc" opacity="0.4"/>
+  <!-- Moving scan indicator -->
+  <rect x="388" y="180" width="24" height="4" rx="2" fill="#00ffff" opacity="0.9" filter="url(#glow2)"/>
+  <text x="400" y="178" font-family="monospace" font-size="8" fill="#00ffcc" text-anchor="middle">AI</text>
+
+  <!-- BOTTOM METRICS BAR -->
+  <rect x="0" y="390" width="800" height="60" fill="#060c18"/>
+  <!-- Metric boxes -->
+  <!-- SSIM -->
+  <rect x="12" y="398" width="110" height="44" rx="4" fill="#0a1a14" stroke="#5eead422" stroke-width="1"/>
+  <text x="67" y="413" font-family="'Courier New',monospace" font-size="9" fill="#40a880" text-anchor="middle">SSIM SCORE</text>
+  <text x="67" y="432" font-family="'Courier New',monospace" font-size="16" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#textGlow)">0.924</text>
+  <!-- PSNR -->
+  <rect x="134" y="398" width="110" height="44" rx="4" fill="#0a1a14" stroke="#5eead422" stroke-width="1"/>
+  <text x="189" y="413" font-family="'Courier New',monospace" font-size="9" fill="#40a880" text-anchor="middle">PSNR (dB)</text>
+  <text x="189" y="432" font-family="'Courier New',monospace" font-size="16" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#textGlow)">34.7 dB</text>
+  <!-- FID -->
+  <rect x="256" y="398" width="110" height="44" rx="4" fill="#0a1a14" stroke="#5eead422" stroke-width="1"/>
+  <text x="311" y="413" font-family="'Courier New',monospace" font-size="9" fill="#40a880" text-anchor="middle">FID SCORE</text>
+  <text x="311" y="432" font-family="'Courier New',monospace" font-size="16" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#textGlow)">12.4</text>
+  <!-- Model info -->
+  <rect x="378" y="398" width="154" height="44" rx="4" fill="#0a1420" stroke="#5eead422" stroke-width="1"/>
+  <text x="455" y="413" font-family="'Courier New',monospace" font-size="9" fill="#a080c0" text-anchor="middle">MODEL</text>
+  <text x="455" y="428" font-family="'Courier New',monospace" font-size="10" font-weight="bold" fill="#c0a0e0" text-anchor="middle">Stable Diffusion v2.1</text>
+  <text x="455" y="442" font-family="'Courier New',monospace" font-size="9" fill="#9080b0" text-anchor="middle">Realistic Vision · CFG 7.5</text>
+  <!-- Processing time -->
+  <rect x="544" y="398" width="110" height="44" rx="4" fill="#0a1a14" stroke="#5eead422" stroke-width="1"/>
+  <text x="599" y="413" font-family="'Courier New',monospace" font-size="9" fill="#40a880" text-anchor="middle">INFER TIME</text>
+  <text x="599" y="432" font-family="'Courier New',monospace" font-size="16" font-weight="bold" fill="#5eead4" text-anchor="middle" filter="url(#textGlow)">4.2 s</text>
+  <!-- Status -->
+  <rect x="666" y="398" width="122" height="44" rx="4" fill="#0a2010" stroke="#00cc4422" stroke-width="1"/>
+  <text x="727" y="413" font-family="'Courier New',monospace" font-size="9" fill="#40cc80" text-anchor="middle">STATUS</text>
+  <text x="727" y="430" font-family="'Courier New',monospace" font-size="11" font-weight="bold" fill="#44ee88" text-anchor="middle">✓ RESTORED</text>
+  <text x="727" y="444" font-family="'Courier New',monospace" font-size="8" fill="#30aa60" text-anchor="middle">Published 2025</text>
+</svg>
