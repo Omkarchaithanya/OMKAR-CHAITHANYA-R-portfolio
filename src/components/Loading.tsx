@@ -16,8 +16,8 @@ const Loading = ({ percent }: { percent: number }) => {
     let t2: ReturnType<typeof setTimeout>;
     const t1 = setTimeout(() => {
       setLoaded(true);
-      t2 = setTimeout(() => setIsLoaded(true), 600);
-    }, 300);
+      t2 = setTimeout(() => setIsLoaded(true), 200);
+    }, 100);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
@@ -35,7 +35,7 @@ const Loading = ({ percent }: { percent: number }) => {
         if (cancelled) return;
         module.initialFX?.();
         setIsLoading(false);
-      }, 600);
+      }, 300);
     });
     return () => {
       cancelled = true;
