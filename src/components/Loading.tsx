@@ -119,7 +119,7 @@ export const setProgress = (setLoading: (value: number) => void) => {
         if (percent >= 91) {
           clearInterval(interval);
         }
-      }, 150);
+      }, 30);
     }
   }, 80);
 
